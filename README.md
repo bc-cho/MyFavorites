@@ -1,4 +1,4 @@
-# My Favorite Places 📌
+# My Favorite Places
 
 ## 概要
 - 地図からお気に入りを登録してMapアプリに転送できるようにできるシンプルなアプリ
