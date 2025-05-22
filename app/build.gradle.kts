@@ -63,5 +63,5 @@ dependencies {
 }
 
 secrets {
-    propertiesFileName = "secrets.properties"
+    propertiesFileName = "local.properties"
 }
