@@ -11,6 +11,7 @@ composeBom = "2025.05.01"
 googleMap = "6.1.0"
 secretsGradle = "2.0.1"
 koin = "4.0.3"
+myFavoritesCore = "0.0.1"
 material3 = "1.4.0-alpha15"
 
 [libraries]
@@ -34,6 +35,7 @@ gradle-secrets = { group = "com.google.android.libraries.mapsplatform.secrets-gr
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core" }
 koin-android = { module = "io.insert-koin:koin-android" }
+myfavorites-core = { group = "com.tryanything", name = "myfavorites-core", version.ref = "myFavoritesCore"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
