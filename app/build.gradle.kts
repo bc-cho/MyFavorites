@@ -40,6 +40,13 @@ android {
         buildConfig = true
         compose = true
     }
+
+    // FIXME: ビルド失敗の原因を調べる
+    packagingOptions {
+        resources {
+            excludes.add("META-INF/versions/9/OSGI-INF/MANIFEST.MF")
+        }
+    }
 }
 
 dependencies {
