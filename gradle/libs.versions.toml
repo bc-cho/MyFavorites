@@ -14,10 +14,12 @@ secretsGradle = "2.0.1"
 koin = "4.1.0-RC1"
 coil = "3.2.0"
 myFavoritesCore = "0.0.4"
+ossLicensesPlugin = "0.10.6"
+playServicesOssLicenses = "17.1.0"
 
 [libraries]
 ## Core
-myfavorites-core = { group = "com.tryanything", name = "myfavorites-core", version.ref = "myFavoritesCore"}
+myfavorites-core = { group = "com.tryanything", name = "myfavorites-core", version.ref = "myFavoritesCore" }
 
 ## Android
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -53,6 +55,10 @@ gradle-secrets = { group = "com.google.android.libraries.mapsplatform.secrets-gr
 ## Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+
+## License
+oss-licenses-plugin = { module = "com.google.android.gms:oss-licenses-plugin", version.ref = "ossLicensesPlugin" }
+play-services-oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "playServicesOssLicenses" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

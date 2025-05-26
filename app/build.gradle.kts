@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.android.gms.oss-licenses-plugin")
     // secrets.properties格納されたAPIを読み込むため
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
@@ -82,6 +83,7 @@ dependencies {
     implementation(libs.compose.coil.okhttp)
 
     implementation(libs.myfavorites.core)
+    implementation(libs.play.services.oss.licenses)
 }
 
 secrets {

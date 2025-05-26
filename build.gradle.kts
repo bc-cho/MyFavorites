@@ -8,5 +8,6 @@ plugins {
 buildscript {
     dependencies {
         classpath(libs.gradle.secrets)
+        classpath(libs.oss.licenses.plugin)
     }
 }
