@@ -67,7 +67,9 @@ private fun FavoriteListView(places: List<Place>) {
         items(places, key = { item -> item.id }) { item ->
             FavoriteListItem(
                 item = item,
-                onFavoriteClick = { },
+                onFavoriteClick = {
+                    // TODO: 削除できるようなUIを作る
+                },
                 onItemClick = {
                     // TODO: DetailViewに進む
                 }
@@ -79,7 +81,7 @@ private fun FavoriteListView(places: List<Place>) {
 @Composable
 private fun FavoriteListItem(
     item: Place,
-    onFavoriteClick: () -> Unit,
+    onFavoriteClick: (Place) -> Unit,
     onItemClick: () -> Unit
 ) {
     Card(

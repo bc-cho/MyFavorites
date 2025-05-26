@@ -44,6 +44,10 @@ fun NavigationTabScreen(modifier: Modifier) {
             }
         }
     ) { contentPadding ->
-        AppNavHost(navController, startDestination, modifier = Modifier.padding(contentPadding))
+        AppNavHost(
+            navController,
+            startDestination,
+            modifier = Modifier.padding(bottom = contentPadding.calculateBottomPadding())
+        )
     }
 }
