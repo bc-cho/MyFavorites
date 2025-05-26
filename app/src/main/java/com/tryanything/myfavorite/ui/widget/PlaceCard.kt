@@ -98,7 +98,13 @@ fun PlaceCard(item: Place, onFavoriteClick: (Place) -> Unit) {
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        IconButton(onClick = { onFavoriteClick.invoke(item) }) {
+        IconButton(onClick = {
+            if (item.isFavorite) {
+                onFavoriteClick.invoke(item)
+            } else {
+                // TODO: 削除機能実装
+            }
+        }) {
             Icon(
                 imageVector = if (item.isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
                 contentDescription = if (item.isFavorite)
