@@ -1,5 +1,6 @@
 package com.tryanything.myfavorite.model
 
+import com.google.android.gms.maps.model.LatLng
 import com.tryanything.myfavorites.model.dto.FavoriteDto
 import com.tryanything.myfavorites.model.dto.PlaceDto
 
@@ -33,4 +34,7 @@ data class Place(
         imageName = favoriteDto.imageName,
         imageUrl = favoriteDto.imageUrl
     )
+
+    val latLng: LatLng
+        get() = LatLng(latitude, longitude)
 }
