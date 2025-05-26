@@ -39,7 +39,7 @@ import com.tryanything.myfavorite.R
 import com.tryanything.myfavorite.model.Place
 
 @Composable
-fun PlaceCard(item: Place, onFavoriteClick: () -> Unit) {
+fun PlaceCard(item: Place, onFavoriteClick: (Place) -> Unit) {
     Row(
         modifier = Modifier
             .padding(12.dp)
@@ -98,7 +98,7 @@ fun PlaceCard(item: Place, onFavoriteClick: () -> Unit) {
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        IconButton(onClick = onFavoriteClick) {
+        IconButton(onClick = { onFavoriteClick.invoke(item) }) {
             Icon(
                 imageVector = if (item.isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
                 contentDescription = if (item.isFavorite)
