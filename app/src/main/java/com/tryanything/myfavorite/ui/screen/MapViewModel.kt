@@ -46,6 +46,7 @@ class MapViewModel(
         )
 
     val selectedPlace: StateFlow<Place?> =
+        // TODO: 指定されたIDでObserveする
         _selectedPlace.combine(favoriteRepository.observeAllFavorites()) { place, favorites ->
             place?.copy(isFavorite = favorites.any { it.id == place.id })
         }.stateIn(
