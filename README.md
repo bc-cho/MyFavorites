@@ -11,3 +11,7 @@
 - Coreモジュールコードは以下を参照
   
   https://github.com/bc-cho/MyFavoritesCore
+
+## アプリ動作確認動画
+
+<img src="https://github.com/user-attachments/assets/bac88848-88aa-474e-8645-e4d1bcb95a51" width=240px />
