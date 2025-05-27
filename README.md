@@ -9,4 +9,5 @@
 
 ## Core Module
 - Coreモジュールコードは以下を参照
+  
   https://github.com/bc-cho/MyFavoritesCore
