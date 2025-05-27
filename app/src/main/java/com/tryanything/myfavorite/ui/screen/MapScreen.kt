@@ -37,12 +37,21 @@ import com.tryanything.myfavorite.ui.widget.PlaceCard
 @Composable
 fun MapScreen(viewModel: MapViewModel) {
     val searchResults by viewModel.searchResult.collectAsStateWithLifecycle()
-    MapView(searchResults, viewModel::searchByText, viewModel::addToFavorite)
+    val selectedPlace by viewModel.selectedPlace.collectAsStateWithLifecycle()
+    MapView(
+        searchResults,
+        selectedPlace,
+        viewModel::selectPlace,
+        viewModel::searchByText,
+        viewModel::addToFavorite
+    )
 }
 
 @Composable
 private fun MapView(
     searchResults: List<Place>,
+    selectedPlace: Place?,
+    onPlaceSelected: (Place) -> Unit,
     searchByText: (String) -> Unit,
     addToFavorite: (Place) -> Unit
 ) {
@@ -52,14 +61,13 @@ private fun MapView(
         position = CameraPosition.fromLatLngZoom(tokyo, 10f)
     }
     val marker = rememberMarkerState(position = tokyo)
-    val selectedPlace = remember { mutableStateOf<Place?>(null) }
     val title = remember { mutableStateOf("") }
     Box(Modifier.fillMaxSize()) {
         GoogleMap(
             modifier = Modifier.matchParentSize(),
             cameraPositionState = cameraPositionState
         ) {
-            selectedPlace.value?.also { place ->
+            selectedPlace?.also { place ->
                 Marker(
                     state = marker,
                     title = title.value,
@@ -76,14 +84,14 @@ private fun MapView(
             Spacer(Modifier.height(10.dp))
             MapSearchBar(searchResults, searchByText) { selectedItem ->
                 marker.position = selectedItem.latLng
-                selectedPlace.value = selectedItem
+                onPlaceSelected.invoke(selectedItem)
                 title.value = selectedItem.name
                 cameraPositionState.position =
                     CameraPosition.fromLatLngZoom(selectedItem.latLng, 10f)
             }
         }
 
-        selectedPlace.value?.also { selectedPlace ->
+        selectedPlace?.also { selectedPlace ->
             SelectedPlace(
                 Modifier
                     .padding(horizontal = 15.dp)
@@ -117,7 +125,7 @@ private fun SelectedPlace(
 @Composable
 fun PreviewMapScreen() {
     MyFavoritesTheme {
-        MapView(emptyList(), {}, {})
+        MapView(emptyList(), null, {}, {}, {})
     }
 }
 
