@@ -32,7 +32,8 @@ data class Place(
         latitude = favoriteDto.lat,
         longitude = favoriteDto.lon,
         imageName = favoriteDto.imageName,
-        imageUrl = favoriteDto.imageUrl
+        imageUrl = favoriteDto.imageUrl,
+        isFavorite = true
     )
 
     val latLng: LatLng

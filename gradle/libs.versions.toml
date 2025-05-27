@@ -15,7 +15,7 @@ koin = "4.1.0-RC1"
 coil = "3.2.0"
 ossLicensesPlugin = "0.10.6"
 playServicesOssLicenses = "17.1.0"
-myFavoritesCore = "0.0.6"
+myFavoritesCore = "0.0.8"
 
 [libraries]
 ## Core
