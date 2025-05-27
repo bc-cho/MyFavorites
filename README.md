@@ -7,3 +7,6 @@
 - local.propertiesに Google Maps PlatformのAPIKEYを次のように設定する
   - MAPS_API_KEY={YOUR API KEY}
 
+## Core Module
+- Coreモジュールコードは以下を参照
+  https://github.com/bc-cho/MyFavoritesCore
