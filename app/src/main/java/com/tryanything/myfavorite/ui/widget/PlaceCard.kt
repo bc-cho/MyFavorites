@@ -100,9 +100,9 @@ fun PlaceCard(item: Place, onFavoriteClick: (Place) -> Unit) {
 
         IconButton(onClick = {
             if (item.isFavorite) {
-                onFavoriteClick.invoke(item)
-            } else {
                 // TODO: 削除機能実装
+            } else {
+                onFavoriteClick.invoke(item)
             }
         }) {
             Icon(

@@ -11,6 +11,7 @@ import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
@@ -25,6 +26,7 @@ class MapViewModel(
 ) : ViewModel() {
 
     private val _query = MutableStateFlow("")
+    private val _selectedPlace = MutableStateFlow<Place?>(null)
 
     @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
     val searchResult: StateFlow<List<Place>> = _query
@@ -43,10 +45,22 @@ class MapViewModel(
             initialValue = emptyList()
         )
 
+    val selectedPlace: StateFlow<Place?> =
+        // TODO: 指定されたIDでObserveする
+        _selectedPlace.combine(favoriteRepository.observeAllFavorites()) { place, favorites ->
+            place?.copy(isFavorite = favorites.any { it.id == place.id })
+        }.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000L),
+            initialValue = null
+        )
+
     fun searchByText(text: String) {
-        viewModelScope.launch {
-            _query.update { text }
-        }
+        _query.update { text }
+    }
+
+    fun selectPlace(id: Place) {
+        _selectedPlace.update { id }
     }
 
     fun addToFavorite(item: Place) {
