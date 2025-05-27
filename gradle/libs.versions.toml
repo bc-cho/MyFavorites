@@ -13,7 +13,7 @@ googleMap = "6.1.0"
 secretsGradle = "2.0.1"
 koin = "4.1.0-RC1"
 coil = "3.2.0"
-myFavoritesCore = "0.0.6"
+myFavoritesCore = "0.0.8"
 
 [libraries]
 ## Core
