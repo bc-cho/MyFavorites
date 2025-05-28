@@ -7,6 +7,7 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
+mockk = "1.14.2"
 navigationCompose = "2.9.0"
 composeBom = "2025.05.01"
 googleMap = "6.1.0"
@@ -14,6 +15,7 @@ secretsGradle = "2.0.1"
 koin = "4.1.0-RC1"
 coil = "3.2.0"
 myFavoritesCore = "0.0.9"
+kotlinCoroutines = "1.10.2"
 
 [libraries]
 ## Core
@@ -52,7 +54,9 @@ gradle-secrets = { group = "com.google.android.libraries.mapsplatform.secrets-gr
 
 ## Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

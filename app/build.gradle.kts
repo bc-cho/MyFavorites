@@ -82,6 +82,8 @@ dependencies {
     implementation(libs.compose.coil.okhttp)
 
     implementation(libs.myfavorites.core)
+    testImplementation(libs.kotlin.coroutines.test)
+    testImplementation(libs.mockk)
 }
 
 secrets {
